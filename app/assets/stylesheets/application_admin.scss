@@ -11,16 +11,18 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
+ *= require toastr
  */
- @import './admin/*';
- @import './review.scss';
- @import './reviews.scss';
- @import 'toastr';
+@import 'toastr';
+@import './admin/*';
+@import './review.scss';
+@import './reviews.scss';
+@import 'toastr';
 
- *{
+* {
   font-size: 14px;
 
-  svg{
+  svg {
     font-size: 20px;
   }
- }
+}

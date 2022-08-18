@@ -39,4 +39,12 @@ class ApplicationController < ActionController::Base
       format.js{flash[:danger] = title}
     end
   end
+
+  def current_user_activated?
+    return if current_user.activated?
+
+    store_location
+    flash[:danger] = t ".user_not_activated"
+    redirect_to root_path
+  end
 end

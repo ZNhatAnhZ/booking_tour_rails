@@ -65,14 +65,11 @@ build-iPhoneSimulator/
 yarn-debug.log*
 .yarn-integrity
 /test/
-config/database.yml
-config/application.yml
+
 
 # Ignore application configuration
-/config/application.yml
 
 .framgia-ci-reports/
 .framgia-ci-result.temp.yml
 /log/
 /storage/
-/db/seeds.rb

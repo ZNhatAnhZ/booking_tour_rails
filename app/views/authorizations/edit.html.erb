@@ -1,0 +1,35 @@
+<div class="video-call-container">
+  <div class="video-container">
+    <video id="local-video" autoplay="true"></video>
+    <video id="remote-video" autoplay="true"></video>
+  </div>
+  <div class="controls">
+    <button type="button" class="btn btn-primary btn-circle" id="join-button">
+      <%= image_tag "call-join.svg", class: "videocall-icon" %>
+    </button>
+    <%= link_to admin_users_path, class: "leave-button-container" do %>
+      <button type="button" class="btn btn-danger btn-circle" id="leave-button">
+        <%= image_tag "call-leave.svg", class: "videocall-icon" %>
+      </button>
+    <% end %>
+    <button type="button" class="btn btn-primary btn-circle" id="toggle-video-on">
+      <%= image_tag "camera-on.svg", class: "videocall-icon" %>
+    </button>
+    <button type="button" class="btn btn-danger btn-circle" id="toggle-video-off">
+      <%= image_tag "camera-off.svg", class: "videocall-icon" %>
+    </button>
+    <button type="button" class="btn btn-primary btn-circle" id="toggle-audio-on">
+      <%= image_tag "mic-on.svg", class: "videocall-icon" %>
+    </button>
+    <button type="button" class="btn btn-danger btn-circle" id="toggle-audio-off">
+      <%= image_tag "mic-off.svg", class: "videocall-icon" %>
+    </button>
+    <% if current_user.admin? %>
+      <%= form_tag authorization_activate_path(@activating_user_id), class: "authorization-form", remote: true do %>
+        <%= button_tag(type: "submit", class:"btn btn-success btn-circle", id: "check_button") do %>
+          <%= image_tag "check.svg", class: "videocall-icon" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

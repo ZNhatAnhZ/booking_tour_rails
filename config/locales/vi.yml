@@ -38,6 +38,8 @@ vi:
       previews: "Previews"
       english: "Tiếng Anh"
       vietnamese: " Tiếng Việt"
+      account: "tài khoản"
+      active_your_account: "kích hoạt tài khoản của bạn"
     footer:
       tour_agency: "Đại lý du lịch"
       book_now: " đặt bây giờ"
@@ -77,6 +79,12 @@ vi:
       sign_Up_Now: " Đăng ký ngay"
       singup_description: " Đăng ký để có được các tính năng đầy đủ của trang web của chúng tôi"
       signup: " Đăng ký"
+  authorizations:
+    update:
+      activate_user_successful: "kích hoạt người dùng thành công"
+      activate_user_failed: "kích hoạt người dùng không thành công"
+    edit:
+      user_already_activated: "người dùng đã được kích hoạt"
   users:
     show:
       show_user_failed: "Hiển thị danh sách user thất bại!"

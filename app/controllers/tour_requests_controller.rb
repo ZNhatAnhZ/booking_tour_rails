@@ -1,5 +1,6 @@
 class TourRequestsController < ApplicationController
-  before_action :logged_in_user, only: %i(index create destroy)
+  before_action :logged_in_user, :current_user_activated?,
+                only: %i(index create update destroy)
   before_action :find_tour_requests, only: %i(update destroy)
   before_action :find_tour, only: %i(create update destroy)
   before_action :load_tour_requests, only: :index
@@ -13,6 +14,7 @@ class TourRequestsController < ApplicationController
     if tour_request.persisted?
       find_tour
       tour_request_success
+      broadcast_message current_user, tour_request
     else
       tour_request_failed tour_request
     end
@@ -130,5 +132,13 @@ class TourRequestsController < ApplicationController
                      !@tour_request.next
 
     page_condition ? 1 : 0
+  end
+
+  def broadcast_message current_user, tour_request
+    ActionCable.server.broadcast "notifications_channel",
+                                 {tour: @tour,
+                                  user_name: tour_request.user_name,
+                                  quantity: tour_request.quantity,
+                                  user_id: current_user.id}
   end
 end

@@ -17,7 +17,9 @@ Rails.application.routes.draw do
       resources :tour_requests
       resources :filter_tours, only: %i(index)
     end
-    resources :account_activations, only: :edit
-    mount ActionCable.server => '/cable'
+    get "/authorization/:id", to: "authorizations#edit", as: :authorization
+    post "/authorization/:id", to: "authorizations#update",
+                               as: :authorization_activate
+    mount ActionCable.server => "/cable"
   end
 end

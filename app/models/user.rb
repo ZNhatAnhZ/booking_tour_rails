@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   UPDATABLE_ATTRS = %i(name email password password_confirmation).freeze
 
+  validates :activated, presence: true
   validates :name, presence: true, length: {maximum: Settings.user.name_max}
   validates :email, presence: true, length: {maximum: Settings.user.email_max},
                     format: {with: Settings.user.email_regex},

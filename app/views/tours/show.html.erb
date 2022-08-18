@@ -64,7 +64,7 @@
                                 </div>
                               </div>
                             </div>
-                            <%= render "booking" if current_user %>
+                            <%= render "booking" if current_user&.activated? %>
                           </div>
                         </div>
                       </div>

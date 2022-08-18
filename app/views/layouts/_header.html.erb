@@ -20,9 +20,15 @@
               <li class="has-dropdown">
                 <%= link_to t(".account"), "#" %>
                 <ul class="dropdown">
-                  <li>
-                    <%= link_to t(".profile"), "#" %>
-                  </li>
+                  <% if current_user&.activated? %>
+                    <li>
+                      <%= link_to t(".profile"), "#" %>
+                    </li>
+                  <% else %>
+                    <li>
+                      <%= link_to t(".activate_your_account"), authorization_path(current_user.id) %>
+                    </li>
+                  <% end %>
                   <li>
                     <%= link_to t(".booked_tour"), tour_requests_path %>
                   </li>

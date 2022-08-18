@@ -38,6 +38,8 @@ en:
       previews: "Previews"
       english: "English"
       vietnamese: "Vietnamese"
+      account: "account"
+      active_your_account: "active your account"
     footer:
       tour_agency: "Tour agency"
       book_now: "book now"
@@ -77,6 +79,12 @@ en:
       sign_Up_Now: "Sign Up Now"
       singup_description: "Sign up to get the full features of our site"
       signup: "Sign up"
+  authorizations:
+    update:
+      activate_user_successful: "activate user successful"
+      activate_user_failed: "activate user failed"
+    edit:
+      user_already_activated: "user already activated"
   admin:
     users:
       show:
